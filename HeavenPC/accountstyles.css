@@ -1,0 +1,83 @@
+.account_container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 0 3vw;
+    margin-top: 20px;
+}
+.sidebar{
+    img{
+        max-width: 96px;
+        max-height: 128px;
+        padding: 5px;
+        border: 1px solid #e6e7e8;
+        border-radius: 6px;
+    }
+}
+.photo{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    gap: 20px
+}
+.fio{
+    width: 100%;
+    height: 100%;
+    padding: 2px 20px;
+    border: 1px solid #e6e7e8;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    color: #272727ca;
+    display: flex;
+    justify-content: center;
+}
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #181818;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sidebar a.active, .sidebar a:hover {
+    background-color: #181818;
+    color: white;
+    font-weight: bold;
+}
+.content-header {
+    height: auto;
+    border-bottom: 1px solid #e6e7e8;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.content {
+    padding-left: 20px;
+}
+.form-card {
+    margin-top: 15px;
+    width: 50%;
+}
+.form-group {
+    margin-bottom: 20px;
+
+}
+.input-info-percon{
+    color: #797979;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e6e7e8;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+.form-card input:focus {
+    border-color: #6c757d;
+}
+
+
+

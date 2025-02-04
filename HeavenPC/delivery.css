@@ -1,0 +1,197 @@
+/* Общие стили для страницы */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.eminem{
+    margin-top: 20px;
+    padding: 0 3vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.eminemimg{
+
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    img{
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        height: 256px;
+        width: 192px;
+    }
+}
+/* Контейнер для основного контента */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; 
+}
+
+/* Общие стили для страницы доставки */
+.delivery-page {
+    width: 85%; 
+    padding: 30px;
+    background-color:  #f5f5f5;;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок */
+.delivery-page h1 {
+    text-align: center;
+    font-size: 36px; 
+    color: #181818;
+    margin-bottom: 40px;
+}
+
+/* Форма */
+.delivery-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #181818;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Белый фон для полей выбора */
+#delivery-method, #payment-method {
+    background-color: white;
+    color: #181818; /* Цвет текста, чтобы он был видим */
+    border-radius: 5px !important;
+    border: 1px solid #ccc; /* Добавляем рамку для лучшего визуального отображения */
+}
+
+/* Стиль для полей выбора библиотеки Choices */
+.choices__inner {
+    background-color: white !important;
+    border-radius: 5px !important;
+    border: 1px solid #ccc !important; /* Чтобы задать рамку */
+    color: #181818 !important;
+}
+
+/* Цвет текста для выпадающих элементов в Choices */
+.choices__item {
+    color: #181818 !important;
+}
+
+/* Белый фон для выбора в выпадающем списке */
+.choices__list--dropdown {
+    background-color: white !important;
+}
+
+ 
+/* Поле ввода текста */
+textarea {
+    resize: vertical;
+    height: 140px;
+}
+
+.card-details {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-details input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Кнопка отправки */
+.submit-btn {
+    background-color: #181818;
+    color: #fff;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #333333;
+}
+
+
+
+/* Адаптивность */
+@media (min-width: 1920px) {
+    .delivery-page {
+        width: 90%; 
+        padding: 60px; 
+    }
+
+    .delivery-page h1 {
+        font-size: 40px; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .delivery-page {
+        width: 90%; 
+        padding: 30px;
+    }
+
+    .delivery-page h1 {
+        font-size: 28px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 18px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .delivery-page {
+        width: 100%; 
+        padding: 20px;
+    }
+
+    .delivery-page h1 {
+        font-size: 24px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

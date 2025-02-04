@@ -1,0 +1,138 @@
+.page-and-characteristics_container{
+  margin: 20px 3vw 0 3vw;
+  border-radius: 8px;
+  border: 1px solid #e6e7e8;
+  background-color: #ffffff;
+}
+.page-of-goods_container{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    height: auto;
+    gap: 3vw;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  .wallpapper-of-goods{
+    height: 100%;
+    img{
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .page-of-goods-title{
+    padding: 0 3vw;
+    margin-top: 20px;
+  }
+  
+  .basket-price_container{
+    height: 100%;
+    p{
+      display: -webkit-box;       /* Устанавливает flex-контейнер */
+      -webkit-line-clamp: 10;      /* Ограничивает текст до 3 строк */
+      -webkit-box-orient: vertical; /* Ориентирует линии по вертикали */
+      overflow: hidden;           /* Скрывает текст, выходящий за пределы */
+      text-overflow: ellipsis;
+    }
+
+  }
+  .basket-price{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .button-favourite-basket_container{
+    justify-content: flex-end;
+  }
+  
+
+  .product-status {
+    display: flex;
+    gap: 20px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.status-item i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+.characteristics-of-good {
+  padding: 20px;
+  border-radius: 8px;
+  height: auto;
+  background-color: white;
+}
+
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.main-characteristics,
+.right-characteristics {
+    background-color: white;
+}
+
+.main-title h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.characteristics-of-good ul {
+    list-style: none;
+    padding: 0;
+}
+
+.characteristics-of-good ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.characteristics-of-good .label {
+    font-weight: bold;
+    color: #333;
+}
+
+.characteristics-of-good .value {
+    font-weight: normal;
+    color: #555;
+}
+
+.right-characteristics .cache-characteristics {
+    margin-top: 20px;
+}
+
+.right-characteristics .main-title h3 {
+    font-size: 1.1em;
+}
+
+.short-description-of-good {
+
+  background-color: white;
+}
+
+.short-description-of-good h3 {
+  color: #333;
+  padding-top: 0;
+  text-decoration: none;
+}
+
+.short-description-of-good p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #555;
+}

@@ -1,0 +1,178 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.configurator-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding: 0 10%; /* Добавим отступы по бокам */
+  align-items: center;
+}
+
+/* Стили для кнопки "Собрать ПК" */
+.config-button-container {
+
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  border: 1px solid #e6e7e8;
+}
+
+.config-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color:#181818;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.config-button:hover {
+  background-color: #313131;
+}
+
+/* Стили для конфигуратора */
+.configurator-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Стили для каждой строки конфигуратора */
+.config-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Автоматическая адаптация блоков */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Стили для каждого блока конфигуратора */
+.config-item {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 1rem; /* Относительные значения */
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.config-item:hover {
+  transform: translateY(-5px);
+}
+
+.config-item i {
+  font-size: 2rem; /* Относительное значение для иконок */
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.config-item p {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* .popular-goods_container */
+.popular-goods_container {
+  width: 100%;
+  padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 3vw 20px 3vw;
+}
+
+.popular-goods_container h2 {
+  margin-left: 0; /* Центрируем заголовок относительно контейнера */
+  text-align: center;
+  color: white;
+}
+
+.p-good {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem; /* Добавляем отступы */
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .configurator-container {
+      max-width: 85%; /* Чуть шире для больших экранов */
+  }
+}
+
+@media (max-width: 768px) {
+  .configurator-wrapper {
+      flex-direction: column; /* Переводим в колонку для маленьких экранов */
+      align-items: center;
+  }
+
+  .config-button-container {
+      margin-bottom: 20px; /* Отступы между кнопкой и контейнером */
+  }
+
+  .configurator-container {
+      max-width: 95%; /* Ширина контейнера почти на весь экран */
+  }
+}
+
+@media (max-width: 480px) {
+  .config-item {
+      padding: 0.5rem; /* Уменьшаем отступы для небольших экранов */
+  }
+
+  .config-item i {
+      font-size: 1.5rem; /* Уменьшаем размер иконок */
+  }
+
+  .config-item p {
+      font-size: 0.875rem; /* Уменьшаем размер текста */
+  }
+}
+
+
+.narek{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 3vw;
+  margin-top: 20px;
+  border-radius: 8px;
+
+}
+.narekadd{
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  width: 500px;
+  img{
+    border-radius: 0 8px 8px 0;
+    height: 256px;
+    width: 192px;
+
+  }
+}
+.narekdescr_container{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.narekdescr{
+
+  p{
+    text-align:  center;
+  }
+}

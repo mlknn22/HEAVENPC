@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once __DIR__ . '/db.php';
+
+// Проверка, авторизован ли пользователь
+if (!isset($_SESSION['user_id'])) {
+    // Если пользователь не авторизован, редиректим на страницу входа
+    header("Location: login.php");
+    exit();
+}
+
+// Извлекаем данные пользователя по его ID
+$user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare("SELECT email, phone FROM users WHERE id = :id");
+$stmt->execute(['id' => $user_id]);
+$user = $stmt->fetch();
+
+if (!$user) {
+    die("Пользователь не найден.");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -28,7 +50,7 @@
             <ul class="header-top-menu">
                 <li><a href="delivery.html">Доставка и оплата</a></li>
                 <li><a href="#">Тех поддержка</a></li>
-                <li><a href="account.html">Личный кабинет</a></li>
+                <li><a href="account.php">Личный кабинет</a></li>
                 <li><a href="favourites.html">Избранное</a></li>
             </ul>
         </div>
@@ -43,7 +65,7 @@
         <div class="header-bottom">
             <div class="header-bottom_container">
                 <div class="header-bottom_Title">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="images/logo/end-4-logo.jpg" alt="Логотип">
                     </a>
                 </div>
@@ -66,7 +88,7 @@
                         <i class="bi bi-cart3"></i>
                         <p>Корзина</p>
                     </a>
-                    <a href="account.html" class="header-bottom-button" title="Личный Кабинет">
+                    <a href="account.php" class="header-bottom-button" title="Личный Кабинет">
                         <i class="bi bi-person"></i>
                         <p>Войти</p>
                     </a>
@@ -102,12 +124,12 @@
                 <div class="input-group">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="example@mail.com" class="input-info-percon">
-                    </div>
+                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" class="input-info-percon">
+                        </div>
                     <div class="form-group">
                         <label for="phone">Телефон:</label>
-                        <input type="tel" id="phone" name="phone" value="+7 900 000-00-00" class="input-info-percon">
-                    </div>
+                        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>" class="input-info-percon">
+                        </div>
                 </div>
                 <h3>Личные данные:</h3>
                 <div class="input-group">
@@ -132,7 +154,7 @@
 
 <div class="mobile-menu-button_container">
     <div class="mobile-menu-button">
-        <a href="index.html" class="header-bottom-button" title="На главную">
+        <a href="index.php" class="header-bottom-button" title="На главную">
             <i class="bi bi-house"></i>
             <p>Главная</p>
         </a>
@@ -148,7 +170,7 @@
             <i class="bi bi-cart3"></i>
             <p>Корзина</p>
         </a>
-        <a href="account.html" class="header-bottom-button" title="Личный Кабинет">
+        <a href="account.php" class="header-bottom-button" title="Личный Кабинет">
             <i class="bi bi-person"></i>
             <p>Войти</p>
         </a>

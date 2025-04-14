@@ -28,7 +28,7 @@
             <ul class="header-top-menu">
                 <li><a href="delivery.html">Доставка и оплата</a></li>
                 <li><a href="#">Тех поддержка</a></li>
-                <li><a href="account.html">Личный кабинет</a></li>
+                <li><a href="account.php">Личный кабинет</a></li>
                 <li><a href="favourites.html">Избранное</a></li>
             </ul>
         </div>
@@ -43,7 +43,7 @@
         <div class="header-bottom">
             <div class="header-bottom_container">
                 <div class="header-bottom_Title">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="images/logo/end-4-logo.jpg" alt="Логотип">
                     </a>
                 </div>
@@ -66,14 +66,46 @@
                         <i class="bi bi-cart3"></i>
                         <p>Корзина</p>
                     </a>
-                    <a href="account.html" class="header-bottom-button" title="Личный Кабинет">
+                    <button class="header-bottom-button" id="loginBtn" title="Войти">
                         <i class="bi bi-person"></i>
-                        <p>Войти</p>
-                    </a>
+                        <p style="font-size: 15px;">Войти</p>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
+
+
+    <!-- Модальное окно для регистрации -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRegisterModal">&times;</span>
+            <h2>Регистрация</h2>
+            <form action="auth/register.php" method="POST">
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+                <input type="password" name="password" placeholder="Пароль" required>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+
+            <p>У вас уже есть аккаунт? <a href="#" id="loginLink">Войти</a></p>
+        </div>
+    </div>
+
+    <!-- Модальное окно для входа -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Вход</h2>
+            <form action="auth/login.php" method="POST">
+                <input type="text" name="login" placeholder="E-mail или номер телефона" required>
+                <input type="password" name="password" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    
     <div class="category-links">
         <div class="links_container">
             <div class="link-button"><a href="category-of-goods.html">Блоки питания</a></div>
@@ -789,7 +821,7 @@
     </div>
     <div class="mobile-menu-button_container">
         <div class="mobile-menu-button">
-            <a href="index.html" class="header-bottom-button" title="На главную">
+            <a href="index.php" class="header-bottom-button" title="На главную">
                 <i class="bi bi-house"></i>
                 <p>Главная</p>
             </a>
@@ -805,7 +837,7 @@
                 <i class="bi bi-cart3"></i>
                 <p>Корзина</p>
             </a>
-            <a href="account.html" class="header-bottom-button" title="Личный Кабинет">
+            <a href="account.php" class="header-bottom-button" title="Личный Кабинет">
                 <i class="bi bi-person"></i>
                 <p>Войти</p>
             </a>
@@ -829,7 +861,7 @@
                     <li><a href="#">Доставка и оплата</a></li>
                     <li><a href="#">Тех поддержка</a></li>
                     <li><a href="#">Обратная связь</a></li>
-                    <li><a href="accountstr.html">Личный кабинет</a></li>
+                    <li><a href="account.php">Личный кабинет</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -850,5 +882,7 @@
 
     <script src="scripts/swiper-bundle.min.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/modal.js"></script>
+
 </body>
 </html>

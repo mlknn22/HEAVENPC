@@ -741,7 +741,127 @@ footer {
 
 }
 
+/* Стили для модальных окон */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Модальное окно будет поверх всех элементов */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Темный фон для фона модального окна */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
+/* Модальное окно в активном состоянии */
+.modal.show {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Контент модального окна */
+.modal-content {
+  background-color: #fff; /* Белый фон */
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 15px; /* Скругленные углы */
+  width: 80%;
+  max-width: 450px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+}
+
+/* Плавное появление */
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Закрытие модального окна */
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Шапка (обеспечивает, что шапка будет всегда наверху) */
+.header-bottom {
+  position: relative;
+  z-index: 10; /* Шапка будет над модальным окном */
+}
+
+/* Формы в модальном окне */
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Расстояние между элементами формы */
+}
+
+/* Поля формы */
+.modal form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Скругленные углы */
+  transition: border-color 0.3s ease;
+  margin-top: 10px; /* Отступ сверху */
+}
+
+.modal form input:focus {
+  border-color: #181818; /* Подсветка при фокусе */
+  outline: none;
+}
+
+/* Кнопка в модальном окне */
+.modal form button {
+  padding: 12px;
+  background-color: #181818;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Скругленные углы */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Тёмный оттенок кнопки при наведении */
+.modal form button:hover {
+  background-color: #333; /* Более тёмный оттенок при наведении */
+}
+
+/* Ссылка в модальном окне */
+.modal a {
+  color: #181818;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  margin-top: 15px; /* Отступ сверху для ссылки */
+}
+
+.modal a:hover {
+  color: #333; /* Цвет ссылки при наведении */
+}
+
+/* Расстояние между кнопкой и текстом "У вас уже есть аккаунт?" */
+.modal p {
+  margin-top: 20px; /* Отступ сверху */
+}
 
 
 
@@ -1021,4 +1141,5 @@ footer {
   .goods-choose-category_container {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 }

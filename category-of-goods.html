@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/buttonstyles.css">
     <link rel = "icon" href = "eminicon.ico">
 
+    
+
 </head>
 <body>
     <div class="header-top">
@@ -82,17 +84,12 @@
         <div class="sort_container">
             <p style="font-weight: 600; margin-bottom: 20px; font-size: 20px;">Категории</p>
             <div class="sort-page links_container">
-                <div class="sort-link-button"><a href="category-of-goods.html" style="color: brown;">Блоки питания</a></div>
-                <div class="sort-link-button"><a href="#">Видеокарты</a></div>
-                <div class="sort-link-button"><a href="#">Игровая гарнитура</a></div>
-                <div class="sort-link-button"><a href="#">Игровые мыши</a></div>
-                <div class="sort-link-button"><a href="#">Клавиатуры</a></div>
-                <div class="sort-link-button"><a href="#">Материнские платы</a></div>
-                <div class="sort-link-button"><a href="#">Мониторы</a></div>
-                <div class="sort-link-button"><a href="#">Оперативная память</a></div>
-                <div class="sort-link-button"><a href="#">Процессоры</a></div>
-                </ul>
+                <div class="sort-link-button"><a href="#bp" data-type="bp">Блоки питания</a></div>
+                <div class="sort-link-button"><a href="#gpu" data-type="gpu">Видеокарты</a></div>
+                <div class="sort-link-button"><a href="#monitores" data-type="monitores">Мониторы</a></div>
+                <div class="sort-link-button"><a href="#cpu" data-type="cpu">Процессоры</a></div>
             </div>
+            
             <p style="margin-top: 20px;font-weight: 600; font-size: 20px;">Цена (руб.)</p>
             <div class="input-price_container">
                 <div style="display: flex; align-items: center;">
@@ -307,5 +304,6 @@
     </footer>
     <script src="scripts/swiper-bundle.min.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/load_goods.js"></script>
 </body>
 </html>

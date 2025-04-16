@@ -37,10 +37,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["phone"] = $user["phone"];
 
         // Редирект на страницу аккаунта
-        header("Location: ../account.php");
+        // header("Location: ../account.php");
+
+
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
+
         exit();
     } else {
-        echo "Неверный логин или пароль.";
+        // echo "Неверный логин или пароль.";
+
+        header('Content-Type: application/json');
+        echo json_encode(['success' => false, 'message' => 'Неверный логин или пароль']);
+        exit();
+
     }
 }
+
+
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    unset($_SESSION['user_id']);
+    header("Location: ../index.php");
+}
+
 ?>

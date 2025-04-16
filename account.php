@@ -110,7 +110,8 @@ if (!$user) {
             <li><a href="#">Заказы</a></li>
             <li><a href="#">Избранное</a></li>
             <li><a href="#">Настройки</a></li>
-            <li><a href="logout.html" class="logout-btn">Выйти</a></li> <!-- Новая кнопка выхода -->
+            <!-- <li><a href="logout.html" class="logout-btn">Выйти</a></li> Новая кнопка выхода -->
+            <li><a href="auth/login.php?login=&password=&action=logout" class="logout-btn">Выйти</a></li> <!-- Новая кнопка выхода -->
         </ul>
     </nav>
 

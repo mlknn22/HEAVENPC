@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -66,10 +71,23 @@
                         <i class="bi bi-cart3"></i>
                         <p>Корзина</p>
                     </a>
-                    <button class="header-bottom-button" id="loginBtn" title="Войти">
-                        <i class="bi bi-person"></i>
-                        <p style="font-size: 15px;">Войти</p>
-                    </button>
+
+
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Показываем "Личный кабинет", если пользователь вошел -->
+                        <a href="account.php" class="header-bottom-button" title="Личный Кабинет">
+                            <i class="bi bi-person-check"></i>
+                            <p>Кабинет</p>
+                        </a>
+                    <?php else: ?>
+                        <!-- Показываем "Войти", если пользователь не вошел -->
+                        <a href="#" id="loginBtn" class="header-bottom-button" title="Войти">
+                            <i class="bi bi-person"></i>
+                            <p>Войти</p>
+                        </a>
+                    <?php endif; ?>
+
+                    
                 </div>
             </div>
         </div>
@@ -97,7 +115,8 @@
         <div class="modal-content">
             <span class="close" id="closeLoginModal">&times;</span>
             <h2>Вход</h2>
-            <form action="auth/login.php" method="POST">
+            <div id="loginError" class="error-message" style="display: none;"></div>
+            <form action="auth/login.php" method="POST" id="loginForm">
                 <input type="text" name="login" placeholder="E-mail или номер телефона" required>
                 <input type="password" name="password" placeholder="Пароль" required>
                 <button type="submit">Войти</button>
@@ -144,7 +163,7 @@
     <div class="category-of-goods_container">
         <h2>Популярные категории</h2>
         <div class="category-of-goods">
-            <a href="category-of-goods.html">
+            <a href="category-of-goods.html#bp" data-type="bp">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -158,7 +177,7 @@
 
                 </div>
             </a>
-            <a href="#">
+            <a href="category-of-goods.html#gpu" data-type="gpu">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -172,7 +191,7 @@
 
                 </div>
             </a>
-            <a href="#">
+            <!-- <a href="#">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -241,8 +260,8 @@
                         </div>
 
                 </div>
-            </a>
-            <a href="#">
+            </a> -->
+            <a href="category-of-goods.html#cpu" data-type="cpu">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -256,7 +275,7 @@
 
                 </div>
             </a>
-            <a href="#">
+            <!-- <a href="#">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -269,8 +288,8 @@
                         </div>
 
                 </div>
-            </a>
-            <a href="#">
+            </a> -->
+            <a href="category-of-goods.html#monitores" data-type="monitores">
                 <div class="category">
 
                         <div class="category-wallpapper">
@@ -883,6 +902,37 @@
     <script src="scripts/swiper-bundle.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/modal.js"></script>
+
+
+    <script>
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Отменяем стандартную отправку формы
+            
+            const form = e.target;
+            const errorDiv = document.getElementById('loginError');
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '../account.php'; // Редирект при успехе
+                } else {
+                    errorDiv.textContent = data.message; // Показываем ошибку
+                    errorDiv.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                errorDiv.textContent = 'Произошла ошибка при отправке формы';
+                errorDiv.style.display = 'block';
+            });
+        });
+
+    </script>
+
 
 </body>
 </html>
